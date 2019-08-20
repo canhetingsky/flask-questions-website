@@ -1,0 +1,16 @@
+.logo {
+    height: 50px;
+    margin-top: -15px;
+}
+
+body {
+    background: #f3f3f3;
+}
+
+.main-container {
+    background: #ffffff;
+    width: 730px;
+    min-height: 450px;
+    margin: 0 auto;
+    overflow: hidden;
+}
