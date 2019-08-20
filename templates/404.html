@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block title %}{% endblock %}
+{% block head %}
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/404.css') }}">
+{% endblock %}
+{% block main %}
+    <img src="{{ url_for('static', filename='images/404.png') }}"/>
+    <div class="tips">
+        <p>找不到页面了...</p>
+        <p>一定是你打开方式不对...</p>
+        <p id="view"/>
+    </div>
+    <script>
+        var t = 5;
+        setInterval("testTime()", 1000);
+
+        function testTime() {
+            view.innerHTML = t + " 秒后跳转至首页...";
+            if (t == 0) {
+                location = "{{ url_for('index') }}";
+            }
+            t--;
+        }
+    </script>
+{% endblock %}
