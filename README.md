@@ -25,6 +25,12 @@
 
 ## 数据库管理脚本`manage.py`
 
+### 创建数据库 
+
+`python manage.py create_db`，生成sqlite3数据库文件（`tmp\data.db`）
+
+### 数据库迁移（模型修改后需要运行）
+
 1. 初始化，运行命令 `python manage.py db init`，生成migrations文件夹
 2. 迁移文件，运行命令 `python manage.py db migrate`，在`versions`文件夹下生成迁移文件
 3. 映射到数据库（升级），运行命令 `python manage.py db upgrade` ,创建或者更新数据库
