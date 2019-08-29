@@ -5,6 +5,9 @@ from models import User, Question
 from exts import db
 import json
 from decorator import login_required
+from pyecharts import options as opts
+from pyecharts.charts import Bar
+from random import randrange
 
 app = Flask(__name__)
 app.config.from_object('config')
@@ -100,6 +103,25 @@ def search():
         }
     }
     return json.dumps(dic)
+
+
+@app.route('/chart')
+@login_required
+def chart():
+    return render_template('chart.html')
+
+
+@app.route('/api/<api_option>')
+def api(api_option):
+    if api_option == 'barChart':
+        c = (
+            Bar()
+                .add_xaxis(["衬衫", "羊毛衫", "雪纺衫", "裤子", "高跟鞋", "袜子"])
+                .add_yaxis("商家A", [randrange(0, 100) for _ in range(6)])
+                .add_yaxis("商家B", [randrange(0, 100) for _ in range(6)])
+                .set_global_opts(title_opts=opts.TitleOpts(title="Bar-基本示例", subtitle="我是副标题"))
+        )
+        return c.dump_options_with_quotes()
 
 
 # 创建表格、插入数据
