@@ -216,5 +216,12 @@ dmypy.json
 
 # End of https://www.gitignore.io/api/python,pycharm+all
 
+### Code ###
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
 ### Migration ###
 migrations/
